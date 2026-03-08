@@ -25,16 +25,11 @@ const Support: React.FC = () => {
     e.preventDefault();
     if (!dailyMessageText.trim()) return;
 
-    addDailyMessage({
-      date: new Date().toISOString().split('T')[0],
-      message: dailyMessageText.trim()
-    })
+    addDailyMessage(currentUser?.id || getUserId('mai'), dailyMessageText.trim())
       .then(() => {
-        console.log('✅ Daily message submitted successfully');
         setDailyMessageText('');
       })
       .catch(error => {
-        console.error('❌ Failed to add daily message:', error);
         alert('メッセージの保存に失敗しました: ' + error.message);
       });
   };
