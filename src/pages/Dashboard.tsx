@@ -616,7 +616,22 @@ const Dashboard: React.FC = () => {
             {myLatestMessage ? (
               <p className="text-gray-700">{myLatestMessage.message}</p>
             ) : (
-              <p className="text-gray-400 text-sm italic">まだ投稿されていません</p>
+              <form onSubmit={handleDailyMessageSubmit} className="space-y-3">
+                <textarea
+                  value={dailyMessageText}
+                  onChange={(e) => setDailyMessageText(e.target.value)}
+                  placeholder="今日の一言を入力..."
+                  rows={2}
+                  className="w-full px-3 py-2 border border-pink-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 resize-none text-sm"
+                />
+                <button
+                  type="submit"
+                  disabled={!dailyMessageText.trim()}
+                  className="w-full bg-pink-500 text-white py-2 px-3 rounded-lg hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium text-sm"
+                >
+                  投稿する
+                </button>
+              </form>
             )}
           </div>
 
