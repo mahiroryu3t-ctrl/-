@@ -31,8 +31,8 @@ export const useSimpleAuth = () => {
 
 // 事前定義されたユーザーID（Supabase profilesテーブルに登録済み）
 export const USER_IDS = {
-  mai:    'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11',
-  mahiro: 'b0eebc99-9c0b-4ef8-bb6d-6bb9bd380a12',
+  mai:    'dce5a6c7-4ae6-4d84-962d-d345dd7f553a',
+  mahiro: '5c6bba7d-4bb2-4181-b788-30a219e902c1',
 } as const;
 
 export const getUserId = (userKey: 'mai' | 'mahiro'): string => USER_IDS[userKey];
